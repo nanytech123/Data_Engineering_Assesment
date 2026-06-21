@@ -1,165 +1,61 @@
-# Data Engineering Assessment
+# Data Engineer Assessment — Nandini Bawane
 
-## Project Overview
+## Overview
+This repo contains my submission for the Data Engineer Fresher assessment:
+PostgreSQL setup, SQL querying, and a Python data cleaning script.
 
-This project demonstrates:
+## Tech Stack
+- PostgreSQL 
+- Python (pandas)
+- Jupyter Notebook
 
-* PostgreSQL database creation
-* CSV data loading into PostgreSQL
-* SQL JOINs and Aggregations
-* Window Functions
-* Python Data Cleaning
-* Git & GitHub Version Control
-
----
-
-## Project Structure
-
-```text
-data/
+Data/
 │
 ├── customers.csv
-├── products.csv
 ├── orders.csv
+└── Products.csv
+
+Cleaned_csv/
+│
 └── customers_cleaned.csv
 
-sql/
+Sql/
 │
-├── create_tables.sql
-└── queries.sql
+├── schema.sql
+└── Queries.sql
 
-python/
-│
-├── load_data.py
-└── clean_data.py
+python_script.py
 
 README.md
-```
 
----
+## 1. Database Setup
 
-## Technologies Used
+1. Install PostgreSQL locally and ensure the server is running.
+2. Create a database:
+   createdb song_db
+3. Run the schema script to create tables:
+   psql -d song_db -f Sql/schema.sql
 
-* PostgreSQL
-* Python
-* Pandas
-* SQLAlchemy
-* Git
-* GitHub
+## 2. Loading Data
 
----
+Load the sample CSVs into the tables:
+psql -d song_db -c "\copy customers FROM 'Data/customers.csv' DELIMITER ',' CSV HEADER"
+psql -d song_db -c "\copy orders FROM 'Data/orders.csv' DELIMITER ',' CSV HEADER"
+psql -d song_db -c "\copy products FROM 'Data/Products.csv' DELIMITER ',' CSV HEADER"
 
-## Database Setup
+Verify row counts match the source CSVs:
+psql -d song_db -c "SELECT COUNT(*) FROM customers;"
 
-### Create Database
+## 3. Running SQL Queries
 
-```sql
-CREATE DATABASE ecommerce_db;
-```
+All queries (joins, aggregations, window function) are in Sql/Queries.sql. Run them with:
+psql -d song_db -f Sql/Queries.sql
 
-### Create Tables
+## 4. Running the Python Cleaning Script
 
-Run:
-
-```sql
-\i sql/create_tables.sql
-```
-
-This creates:
-
-* customers
-* products
-* orders
-
----
-
-## Load CSV Data
-
-Install required packages:
-
-```bash
-pip install pandas sqlalchemy psycopg2-binary
-```
-
-Run:
-
-```bash
-python python/load_data.py
-```
-
-This loads the CSV files into PostgreSQL tables.
-
----
-
-## Verify Data Load
-
-Run:
-
-```sql
-SELECT COUNT(*) FROM customers;
-
-SELECT COUNT(*) FROM products;
-
-SELECT COUNT(*) FROM orders;
-```
-
-The row counts should match the CSV files.
-
----
-
-## SQL Analysis
-
-Run:
-
-```sql
-\i sql/queries.sql
-```
-
-Queries included:
-
-* JOIN Operations
-* Aggregation Queries
-* Top Products Analysis
-* Revenue Analysis
-* Window Functions
-
----
-
-## Data Cleaning
-
-Run:
-
-```bash
-python python/clean_data.py
-```
-
-The script:
-
-* Removes duplicate rows
-* Removes rows with missing values
-* Standardizes text formatting
-* Creates a cleaned CSV file
-
-Output:
-
-```text
-customers_cleaned.csv
-```
-
----
-
-## Expected Output
-
-After running all scripts:
-
-* PostgreSQL tables are created successfully
-* CSV data is loaded successfully
-* SQL queries execute successfully
-* Cleaned CSV file is generated
-* Data cleaning summary is displayed
-
----
-
-## Author
-
-Nandini Bawane
+1. Install dependencies:
+   pip install pandas psycopg2-binary jupyter
+2. Open and run the notebook:
+   jupyter notebook python_script.ipynb
+   Run all cells top to bottom.
+3. Output: a cleaned CSV in Cleaned_csv/customers_cleaned.csv and a console/cell output summary of rows before/after, duplicates removed, and nulls removed.
