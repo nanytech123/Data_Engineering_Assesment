@@ -9,24 +9,12 @@ PostgreSQL setup, SQL querying, and a Python data cleaning script.
 - Python (pandas)
 - Jupyter Notebook
 
-Data/
-│
-├── customers.csv
-├── orders.csv
-└── Products.csv
-
-Cleaned_csv/
-│
-└── customers_cleaned.csv
-
-Sql/
-│
-├── schema.sql
-└── Queries.sql
-
-python_script.py
-
-README.md
+## Project Structure
+Sql/            -> schema.sql, Queries.sql
+python_script   -> Jupyter notebook with data cleaning logic
+Data/           -> raw CSVs (customers.csv, orders.csv, Products.csv)
+Cleaned_csv/    -> cleaned output (customers_cleaned.csv)
+README.md       -> this file
 
 ## 1. Database Setup
 
