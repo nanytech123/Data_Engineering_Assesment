@@ -1,4 +1,4 @@
-customer_id,customer_name,email,city,signup_date
+﻿customer_id,customer_name,email,city,signup_date
 1,Aarav,aarav@gmail.com,Mumbai,15-01-2025
 2,Diya,diya@gmail.com,Pune,20-01-2025
 3,Vihaan,vihaan@gmail.com,Nagpur,05-02-2025
