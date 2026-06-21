@@ -12,6 +12,8 @@ DELIMITER ','
 CSV HEADER
 NULL '';
 
+SELECT COUNT() FROM customers; 
+
 CREATE TABLE products (
     product_id INT PRIMARY KEY,
     product_name VARCHAR(100),
@@ -24,6 +26,8 @@ FROM 'U:\Data Engineer\Data\products.csv'
 DELIMITER ','
 CSV HEADER
 NULL '';
+
+SELECT COUNT(*) FROM products;
 
 CREATE TABLE orders (
     order_id INT PRIMARY KEY,
@@ -44,6 +48,9 @@ FROM 'U:\Data Engineer\Data\orders.csv'
 DELIMITER ','
 CSV HEADER
 NULL '';
+
+SELECT COUNT() FROM orders; 
+
 
 select * from orders;
 select * from products;
