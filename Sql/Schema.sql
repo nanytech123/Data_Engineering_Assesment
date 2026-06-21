@@ -12,7 +12,7 @@ DELIMITER ','
 CSV HEADER
 NULL '';
 
-SELECT COUNT() FROM customers; 
+
 
 CREATE TABLE products (
     product_id INT PRIMARY KEY,
@@ -27,7 +27,7 @@ DELIMITER ','
 CSV HEADER
 NULL '';
 
-SELECT COUNT(*) FROM products;
+
 
 CREATE TABLE orders (
     order_id INT PRIMARY KEY,
