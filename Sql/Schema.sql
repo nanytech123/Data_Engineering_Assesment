@@ -49,8 +49,9 @@ DELIMITER ','
 CSV HEADER
 NULL '';
 
-SELECT COUNT() FROM orders; 
-
+SELECT COUNT(*) FROM orders; 
+SELECT COUNT(*) FROM products; 
+SELECT COUNT(*) FROM customers; 
 
 select * from orders;
 select * from products;
